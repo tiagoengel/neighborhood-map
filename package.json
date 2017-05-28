@@ -1,0 +1,30 @@
+{
+  "name": "neighborhood-map",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "https://github.com/tiagoengel/neighborhood-map.git",
+  "author": "Tiago Engel <tiagohngl@gmail.com>",
+  "license": "MIT",
+  "scripts": {
+    "build": "webpack",
+    "start": "webpack-dev-server --hot --inline"
+  },
+  "dependencies": {
+    "knockout": "^3.4.2",
+    "lodash": "^4.17.4",
+    "spinkit": "^1.2.5"
+  },
+  "devDependencies": {
+    "babel-core": "^6.24.1",
+    "babel-loader": "^7.0.0",
+    "css-loader": "^0.28.3",
+    "html-loader": "^0.4.5",
+    "node-sass": "^4.5.3",
+    "postcss-loader": "^2.0.5",
+    "sass-loader": "^6.0.5",
+    "style-loader": "^0.18.1",
+    "webpack": "^2.6.1",
+    "webpack-dev-middleware": "^1.10.2",
+    "webpack-dev-server": "^2.4.5"
+  }
+}
