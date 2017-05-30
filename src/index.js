@@ -1,18 +1,7 @@
 import ko from 'knockout';
-import initialize from './components/initialize';
-initialize();
+import initializeComponents from './components/initialize';
+import { App } from './components/App';
 
-const ViewModel = {
-  showLoading: ko.observable(true),
-  foo: ko.observable('bar'),
-
-  stopLoading() {
-    this.showLoading(false);
-  }
-}
-ko.applyBindings(ViewModel);
-
-setTimeout(() => {
-  ViewModel.stopLoading();
-}, 2000);
-
+initializeComponents();
+ko.applyBindings({});
+App.initialize();

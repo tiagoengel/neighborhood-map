@@ -9,8 +9,8 @@ function getComponentName(file) {
 }
 
 /**
- * Loads up an register all knockouts components, this functions assumes
- * every component exports a object containing a valid knock component.
+ * Loads up and register all knockouts components, this functions assumes
+ * every component exports an object containing a valid knock component.
  *
  * Example:
  *
