@@ -9,8 +9,5 @@ function ViewModel(params) {
 
 export default {
   viewModel: ViewModel,
-  template: template
+  template
 };
-
-
-

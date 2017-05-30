@@ -1,7 +1,7 @@
 import { kebabCase } from 'lodash';
 import ko from 'knockout';
 
-const loadComponent = require.context('./', true, /\index.js$/);
+const loadComponent = require.context('./', true, /index.js$/);
 
 function getComponentName(file) {
   const name = file.split('/')[1];
@@ -32,4 +32,4 @@ export default function initialize() {
     const componentName = getComponentName(file);
     ko.components.register(componentName, component.default);
   });
-};
+}

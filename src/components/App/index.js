@@ -8,11 +8,11 @@ const ViewModel = {
   initialize() {
     LocationProvider.fetchCurrentLocation();
   },
-}
+};
 
 export const App = ViewModel;
 
 export default {
   viewModel: { instance: ViewModel },
-  template: template
+  template
 };
