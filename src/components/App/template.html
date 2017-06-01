@@ -1,7 +1,11 @@
-<div id="app">
-  <loading id="global-loading" params="isLoading: location().isFetching()"></loading>
-  <p data-bind="if: location().error()">We are sorry but we were not able to find your location :/</p>
-  <div data-bind="ifnot: location().error()">
-    <p data-bind="text: location().currentLocation()" />
+<div class="app">
+  <loading id="global-loading" params="isLoading: isLoading"></loading>
+  <div data-bind="visible: !isLoading()">
+    <span data-bind="visible: initError()">
+      <p>We are sorry but we were not able to find your location :/</p>
+    </span>
+    <div data-bind="visible: !initError()">
+      <p data-bind="text: location" />
+    </div>
   </div>
 </div>

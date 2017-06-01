@@ -1,4 +1,3 @@
-import 'spinkit/css/spinners/3-wave.css';
 import ko from 'knockout';
 import template from './template.html';
 

@@ -33,8 +33,8 @@ module.exports = {
       },
       {
         test: /\.scss$/,
-        include: path.join(__dirname, 'public/css'),
-        use: ['style-loader', 'css-loader', 'sass-loader']
+        include: path.join(__dirname, 'src'),
+        use: ['style-loader', 'css-loader', 'sass-loader', 'postcss-loader']
       },
       {
         test: /\.css$/,
