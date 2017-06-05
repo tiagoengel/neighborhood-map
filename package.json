@@ -12,7 +12,6 @@
   },
   "dependencies": {
     "axios": "^0.16.1",
-    "bourbon": "^4.3.4",
     "knockout": "^3.4.2",
     "lodash": "^4.17.4",
     "normalize-scss": "^7.0.0",

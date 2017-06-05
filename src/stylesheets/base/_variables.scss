@@ -3,7 +3,7 @@ $medium-screen: 600px;
 $large-screen: 900px;
 
 // Typography
-$base-font-family: $helvetica;
+$base-font-family: $font-stack-system;
 $heading-font-family: $base-font-family;
 
 // Line height
@@ -18,9 +18,12 @@ $base-z-index: 0;
 
 // Colors
 $blue: #1565c0;
+$dark-blue: #2C3E50;
 $dark-gray: #333;
 $medium-gray: #999;
 $light-gray: #ddd;
+$white: #FFF;
+
 
 // Font Colors
 $base-font-color: $dark-gray;
