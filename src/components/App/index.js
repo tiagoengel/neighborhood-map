@@ -1,6 +1,7 @@
 import ko from 'knockout';
 import template from './template.html';
 import LocationProvider from '../../models/LocationProvider';
+import { Sidebar } from '../Sidebar';
 
 const ViewModel = {
   location: LocationProvider.currentLocation,
@@ -14,6 +15,11 @@ const ViewModel = {
   initialize() {
     LocationProvider.fetchCurrentLocation();
   },
+
+  toggleSidebar() {
+    Sidebar.toggle();
+  }
+
 };
 
 export const App = ViewModel;

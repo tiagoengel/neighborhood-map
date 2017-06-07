@@ -1,3 +1,14 @@
+.large-screen-only {
+  display: none;
+}
+
+@media screen and (min-width: $large-screen) {
+  .large-screen-only {
+    display: initial;
+  }
+}
+
+
 html {
   box-sizing: border-box;
 }

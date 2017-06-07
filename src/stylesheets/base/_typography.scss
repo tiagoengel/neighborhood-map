@@ -29,11 +29,6 @@ a {
   &:hover {
     color: shade($action-color, 25%);
   }
-
-  &:focus {
-    outline: $focus-outline;
-    outline-offset: $focus-outline-offset;
-  }
 }
 
 hr {
