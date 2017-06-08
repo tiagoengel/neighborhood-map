@@ -22,7 +22,7 @@ $blue: #1565c0;
 $dark-blue: #2C3E50;
 $dark-gray: #333;
 $medium-gray: #999;
-$light-gray: #ddd;
+$light-gray: #EDEFF0;
 $white: #FFF;
 
 
@@ -47,3 +47,6 @@ $focus-outline-offset: 2px;
 // Animations
 $base-duration: 150ms;
 $base-timing: ease;
+
+// Box shadow
+$base-box-shadow: 0 0 6px rgba(0,0,0,.4);

@@ -1,21 +1,42 @@
 .sidebar {
-  transition: all 0.2s ease-in;
+  transition: all $base-duration $base-timing;
   position: fixed;
   left: 0;
   top: 0;
   height: 100%;
   width: 100%;
-  background: $white;
-  padding: 1rem;
+  background: $light-gray;
   z-index: 10;
   transform: translateX(-100%);
-  color: $base-font-color;
+  color: $dark-blue;
+
+  &__header {
+    border-bottom: 1px solid darken($light-gray, 15%);
+    margin: 1rem;
+    position: relative;
+  }
+
+  &__close {
+    color: $medium-gray;
+    position: absolute;
+    left: 0;
+
+    &:hover {
+      color: inherit;
+    }
+  }
+
+  &__title {
+    text-align: center;
+    font-weight: bold;
+    margin-bottom: 0.5rem;
+  }
 }
 
 @media screen and (min-width: $medium-screen) {
   .sidebar {
-    width: 300px;
-    transform: translateX(-300px);
+    width: 350px;
+    transform: translateX(-350px);
   }
 }
 

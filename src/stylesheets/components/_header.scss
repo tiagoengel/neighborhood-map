@@ -1,21 +1,23 @@
 .header {
-  padding: 1rem;
   display: flex;
+  z-index: 1;
+  padding: 1rem;
 
-  &__menu {
-    flex-grow: 0;
+   &__github-link, &__menu-button {
+    color: $white;
+
+    &:hover {
+      color: inherit;
+    }
+  }
+
+  &__menu-button {
     min-width: 1.5rem;
     min-height: 2rem;
 
     .fa {
       transition: all 0.1s ease-in-out;
       font-size: 1.2rem;
-    }
-
-    &:hover {
-      .fa {
-        font-size: 1.5rem;
-      }
     }
   }
 
@@ -27,13 +29,5 @@
   &__github-link {
     flex-grow: 0;
     text-decoration: none;
-  }
-
-  &__github-link, &__menu {
-    color: $white;
-
-    &:hover {
-      color: inherit;
-    }
   }
 }
