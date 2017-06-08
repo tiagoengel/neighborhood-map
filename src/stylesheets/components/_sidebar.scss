@@ -1,3 +1,6 @@
+$sidebar-background: $light-gray;
+$sidebar-border-color: darken($sidebar-background, 15%);
+
 .sidebar {
   transition: all $base-duration $base-timing;
   position: fixed;
@@ -5,13 +8,14 @@
   top: 0;
   height: 100%;
   width: 100%;
-  background: $light-gray;
+  background: $sidebar-background;
   z-index: 10;
   transform: translateX(-100%);
   color: $dark-blue;
+  box-shadow: 5px 0 6px -2px $black_opt40;
 
   &__header {
-    border-bottom: 1px solid darken($light-gray, 15%);
+    border-bottom: 1px solid $sidebar-border-color;
     margin: 1rem;
     position: relative;
   }
@@ -36,7 +40,7 @@
 @media screen and (min-width: $medium-screen) {
   .sidebar {
     width: 350px;
-    transform: translateX(-350px);
+    transform: translateX(-360px);
   }
 }
 
