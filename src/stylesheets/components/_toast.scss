@@ -15,4 +15,17 @@
       background: $pink;
     }
   }
+
+  &__message-content {
+    font-size: 1.5rem;
+    display: flex;
+    align-items: center;
+    max-width: $medium-screen;
+    margin: 0 auto;
+
+    > p {
+      flex-grow: 1;
+      margin: 0;
+    }
+  }
 }

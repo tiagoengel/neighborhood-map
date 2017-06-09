@@ -9,7 +9,7 @@ $sidebar-border-color: darken($sidebar-background, 15%);
   height: 100%;
   width: 100%;
   background: $sidebar-background;
-  z-index: 10;
+  z-index: 9;
   transform: translateX(-100%);
   color: $dark-blue;
   box-shadow: 5px 0 6px -2px $black_opt40;

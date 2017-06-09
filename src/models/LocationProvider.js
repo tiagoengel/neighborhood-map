@@ -1,5 +1,6 @@
 import ko from 'knockout';
 import axios from 'axios';
+import { toast } from '../components/Toast';
 
 function html5Location() {
   return new Promise((resolve, reject) => {
@@ -41,6 +42,7 @@ const LocationProvider = {
     })
     .catch((err) => {
       console.error('Failed to load location', err);
+      toast("Oh Snap! We weren't able to find your location :/", 'error');
       this.error(err);
     })
     .then(() => this.isFetching(false));
