@@ -1,4 +1,5 @@
-<div class="app">
+<div class="app" data-bind="css: { 'has-sidebar': sidebarVisible() }">
+  <toast />
   <loading id="global-loading" params="isLoading: isLoading"></loading>
   <div data-bind="visible: !isLoading()">
     <span data-bind="visible: initError()">

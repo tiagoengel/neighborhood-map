@@ -5,6 +5,7 @@ import { Sidebar } from '../Sidebar';
 
 const ViewModel = {
   location: LocationProvider.currentLocation,
+  sidebarVisible: Sidebar.visible,
   isLoading: ko.computed(() => {
     return LocationProvider.isFetching();
   }),
@@ -19,7 +20,6 @@ const ViewModel = {
   toggleSidebar() {
     Sidebar.toggle();
   }
-
 };
 
 export const App = ViewModel;

@@ -75,3 +75,11 @@
     max-width: 32px;
   }
 }
+
+@mixin sidebar-aware {
+  @media screen and (min-width: $medium-screen) {
+    .has-sidebar & {
+      margin-left: 350px;
+    }
+  }
+}

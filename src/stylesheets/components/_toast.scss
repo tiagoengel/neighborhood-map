@@ -1,0 +1,18 @@
+.toast {
+  position: fixed;
+  right: 0;
+  top: 0;
+  width: 100%;
+  z-index: 10;
+
+  &__message {
+    @include sidebar-aware;
+    padding: 1rem;
+    margin-bottom: 1rem;
+    color: $white;
+
+    &--is-error {
+      background: $pink;
+    }
+  }
+}
