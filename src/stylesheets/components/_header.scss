@@ -2,6 +2,7 @@
   display: flex;
   z-index: 1;
   padding: 1rem;
+  height: $header-height;
 
    &__github-link, &__menu-button {
     color: $white;

@@ -21,6 +21,8 @@
     "babel-core": "^6.24.1",
     "babel-eslint": "^7.2.3",
     "babel-loader": "^7.0.0",
+    "babel-plugin-transform-es2015-destructuring": "^6.23.0",
+    "babel-plugin-transform-object-rest-spread": "^6.23.0",
     "css-loader": "^0.28.3",
     "eslint": "^3.7.1",
     "eslint-config-airbnb-base": "^11.1.3",

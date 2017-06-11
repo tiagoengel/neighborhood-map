@@ -1,14 +1,16 @@
 <div class="app" data-bind="css: { 'has-sidebar': sidebarVisible() }">
   <toast />
   <loading id="global-loading" params="isLoading: isLoading"></loading>
-  <div data-bind="visible: !isLoading()">
+  <div data-bind="visible: !isLoading()" class="whole-screen">
     <span data-bind="visible: initError()">
       <p>We are sorry but we were not able to find your location :/</p>
     </span>
-    <div data-bind="visible: !initError()">
+    <div data-bind="visible: !initError()" class="whole-screen">
       <app-header params="onClickMenu: toggleSidebar" />
       <sidebar />
-      <p data-bind="text: location" />
+      <div class="app__body">
+        <app-map>
+      </div>
     </div>
   </div>
 </div>

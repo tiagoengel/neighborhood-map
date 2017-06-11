@@ -80,6 +80,7 @@
   @media screen and (min-width: $medium-screen) {
     .has-sidebar & {
       margin-left: 350px;
+      width: calc(100% - 350px);
     }
   }
 }
