@@ -9,8 +9,8 @@ function html5Location() {
     } else {
       navigator.geolocation.getCurrentPosition((position) => {
         const lat = position.coords.latitude;
-        const long = position.coords.longitude;
-        resolve(`${lat},${long}`);
+        const lng = position.coords.longitude;
+        resolve({ lat, lng });
       }, reject);
     }
   });
@@ -18,13 +18,14 @@ function html5Location() {
 
 function ipInfoIOLocation() {
   return axios.get('https://ipinfo.io').then((ipInfo) => {
-    return ipInfo.data.loc;
+    const [lat, lng] = ipInfo.data.loc.split(',');
+    return { lat: parseFloat(lat, 10), lng: parseFloat(lng, 10) };
   });
 }
 
 const LocationProvider = {
   /**
-   * A string with the user's location, formated as 'lat,long`
+   * An object representing the current location. { lat, lng }
    */
   currentLocation: ko.observable(null),
   isFetching: ko.observable(false),

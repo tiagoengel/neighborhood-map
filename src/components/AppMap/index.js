@@ -4,17 +4,17 @@ import LocationProvider from '../../models/LocationProvider';
 import namedCurrying from '../../utils/namedCurrying';
 
 export const Map = {
-  isReady: ko.observable(false)
+  isReady: ko.observable(false),
+  mapInstance: ko.observable(null)
 };
 
 const maybeInitMap = namedCurrying(['currentLocation', 'mapIsReady'],
   ({ currentLocation }) => {
+    Map.mapInstance(new google.maps.Map(document.querySelector('.map'), { //eslint-disable-line
+      center: currentLocation,
+      zoom: 17
+    }));
     Map.isReady(true);
-    const [lat, lng] = currentLocation.split(',');
-    new google.maps.Map(document.querySelector('.map'), { //eslint-disable-line
-      center: { lat: parseFloat(lat, 10), lng: parseFloat(lng, 10) },
-      zoom: 15
-    });
   }
 );
 
