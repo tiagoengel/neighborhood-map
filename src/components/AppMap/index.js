@@ -8,12 +8,30 @@ export const Map = {
   mapInstance: ko.observable(null)
 };
 
+function markMe(position) {
+  const map = Map.mapInstance();
+  const icon = {
+    path: google.maps.SymbolPath.CIRCLE,
+    fillColor: '#2C3E50',
+    fillOpacity: 1,
+    scale: 18,
+    strokeColor: 'white',
+    strokeWeight: 0
+  };
+  const label = {
+    text: 'YOU',
+    color: 'white'
+  };
+  new google.maps.Marker({ map, position, icon, label }); // eslint-disable-line
+}
+
 const maybeInitMap = namedCurrying(['currentLocation', 'mapIsReady'],
   ({ currentLocation }) => {
     Map.mapInstance(new google.maps.Map(document.querySelector('.map'), { //eslint-disable-line
       center: currentLocation,
       zoom: 17
     }));
+    markMe(currentLocation);
     Map.isReady(true);
   }
 );
