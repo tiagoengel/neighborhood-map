@@ -16,8 +16,10 @@ function createMarker(place) {
   const marker = new google.maps.Marker({ map, position });
 
   google.maps.event.addListener(marker, 'click', function onClick() {
+    this.setAnimation(google.maps.Animation.BOUNCE);
     infoWindow.setContent(place.name);
     infoWindow.open(map, this);
+    setTimeout(() => this.setAnimation(null), 700);
   });
 }
 

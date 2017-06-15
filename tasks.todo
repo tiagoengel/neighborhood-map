@@ -1,10 +1,18 @@
 required:
   ✔ find location using html5 api or ipinfo.io @done (13/06/2017 22:19:31)
-  ☐ prod build
+  ☐ prod build (should add prod build in the repo...)
   ✔ toast @done (13/06/2017 22:19:27)
-  ☐ marker for current location
+  ✔ marker for current location @done (15/06/2017 20:19:29)
+  ☐ Knockout should not be used to handle the Google Map API?
+  ☐ Extract map initialization from components.
+  ☐ Extract places loading from componets.
+  ☐ Filter items (should filter in the map and in the sidebar)
+  ☐ Clicking the item on the sidebar should animate the marke and show info about about the place
+     Provide attribution in the UI and README
+  ☐ Use one non Google API? ipinfo?
 
-adicional:
+
+additional:
   ☐ mocka https://github.com/Chalarangelo/mocka
   ☐ http://anime-js.com
   ☐ http://clrs.cc/
