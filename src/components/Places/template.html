@@ -1,1 +1,5 @@
-<div class="places"></div>
+<ul class="places" data-bind="foreach: places">
+  <li class="places__place">
+    <span data-bind="text: $data.name" />
+  </li>
+</ul>

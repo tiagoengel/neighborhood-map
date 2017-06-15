@@ -1,33 +1,24 @@
 $sidebar-background: $light-gray;
-$sidebar-border-color: darken($sidebar-background, 15%);
+$sidebar-border-color: $dark-gray;
 
 .sidebar {
   transition: all $base-duration $base-timing;
   position: fixed;
   left: 0;
-  top: 0;
+  top: $header-height;
   height: 100%;
   width: 100%;
+  overflow-y: auto;
   background: $sidebar-background;
   z-index: 9;
   transform: translateX(-100%);
-  color: $dark-blue;
-  box-shadow: 5px 0 6px -2px $black_opt40;
+  color: $dark-gray;
+  border-right: 1px solid darken($sidebar-background, 5%);
 
   &__header {
-    border-bottom: 1px solid $sidebar-border-color;
-    margin: 1rem;
+    padding: 1rem;
     position: relative;
-  }
-
-  &__close {
-    color: $medium-gray;
-    position: absolute;
-    left: 0;
-
-    &:hover {
-      color: inherit;
-    }
+    height: $header-height;
   }
 
   &__title {

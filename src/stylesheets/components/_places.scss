@@ -1,0 +1,13 @@
+.places {
+  list-style: none;
+  margin-bottom: 1rem;
+
+  &__place {
+    margin: 0 1rem;
+    padding: 0.5rem 0;
+  }
+
+  &__place:not(:last-child) {
+    border-bottom: 1px solid darken($light-gray, 8%);
+  }
+}

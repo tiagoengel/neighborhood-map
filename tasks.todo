@@ -1,7 +1,8 @@
 required:
-  ☐ find location using html5 api or ipinfo.io
+  ✔ find location using html5 api or ipinfo.io @done (13/06/2017 22:19:31)
   ☐ prod build
-  ☐ toast
+  ✔ toast @done (13/06/2017 22:19:27)
+  ☐ marker for current location
 
 adicional:
   ☐ mocka https://github.com/Chalarangelo/mocka
