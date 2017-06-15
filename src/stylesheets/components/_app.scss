@@ -10,6 +10,15 @@
     margin: 0;
     padding: 0;
     width: 100%;
-    height: calc(100% - #{$header-height});
+    // TODO: please refactor me
+    margin-top: calc(#{$header-height} - 1.2rem);
+    height: calc(100% - (#{$header-height} + (#{$header-height} - 1.2rem)));
+  }
+
+  @media screen and (min-width: $medium-screen) {
+    &__body {
+      margin-top: 0;
+      height: calc(100% - #{$header-height});
+    }
   }
 }
