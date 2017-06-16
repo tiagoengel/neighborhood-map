@@ -2,18 +2,22 @@ import template from './template.html';
 import Places from '../../models/Places';
 import GMap from '../../GMap';
 
-let currMarkers = [];
+let markers = [];
 
 const ViewModel = {
   places: Places.places
 };
 
+function cleanMarkers() {
+  markers.forEach((marker) => {
+    marker.setMap(null);
+  });
+}
+
 Places.places.subscribe((places) => {
   setTimeout(() => {
-    currMarkers.forEach((marker) => {
-      marker.setMap(null);
-    });
-    currMarkers = places.map(place => GMap.createPlaceMarker(place));
+    cleanMarkers();
+    markers = places.map(place => GMap.createPlaceMarker(place));
   }, 0);
 });
 

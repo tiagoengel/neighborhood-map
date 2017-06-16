@@ -9,7 +9,7 @@ function Places() {
   this.places = ko.computed(function filterPlaces() {
     const filter = this.filter();
     return allPlaces().filter((place) => {
-      return place.name.indexOf(filter) > -1;
+      return place.name.toLowerCase().indexOf(filter.toLowerCase()) > -1;
     });
   }, this);
 }
