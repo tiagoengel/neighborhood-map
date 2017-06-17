@@ -6,10 +6,12 @@ required:
   ✔ Knockout should not be used to handle the Google Map API? @done (15/06/2017 22:09:48)
   ✔ Extract map initialization from components. @done (15/06/2017 22:09:49)
   ✔ Extract places loading from componets. @done (15/06/2017 22:09:51)
-  ☐ Filter items (should filter in the map and in the sidebar)
-  ☐ Clicking the item on the sidebar should animate the marke and show info about about the place
-     Provide attribution in the UI and README
+  ✔ Filter items (should filter in the map and in the sidebar) @done (17/06/2017 15:52:03)
+  ✔ Clicking the item on the sidebar should animate the marker @done (17/06/2017 16:20:01)
+  ☐ show info about about the place upon clicking. Provide attribution in the UI and README
   ☐ Use one non Google API? ipinfo?
+  ☐ Better layout
+  ☐ Unit tests or functional tests?
 
 
 additional:

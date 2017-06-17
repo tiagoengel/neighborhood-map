@@ -2,14 +2,21 @@ import template from './template.html';
 import Places from '../../models/Places';
 import GMap from '../../GMap';
 
-let markers = [];
+let markers = {};
 
 const ViewModel = {
-  places: Places.places
+  places: Places.places,
+
+  bounceIt(place) {
+    const marker = markers[place.name];
+    if (marker) {
+      GMap.bounceIt(marker, 1400);
+    }
+  }
 };
 
 function cleanMarkers() {
-  markers.forEach((marker) => {
+  Object.values(markers).forEach((marker) => {
     marker.setMap(null);
   });
 }
@@ -17,7 +24,9 @@ function cleanMarkers() {
 Places.places.subscribe((places) => {
   setTimeout(() => {
     cleanMarkers();
-    markers = places.map(place => GMap.createPlaceMarker(place));
+    markers = Object.assign(
+      ...places.map(place => ({ [place.name]: GMap.createPlaceMarker(place) }))
+    );
   }, 0);
 });
 

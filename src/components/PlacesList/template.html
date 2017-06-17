@@ -1,5 +1,5 @@
 <ul class="places" data-bind="foreach: places">
-  <li class="places__place">
+  <li class="places__place" data-bind="click: $parent.bounceIt($data)">
     <span data-bind="text: $data.name" />
   </li>
 </ul>

@@ -38,10 +38,9 @@ const GMap = {
     const marker = GMap.createMarker({ position });
 
     google.maps.event.addListener(marker, 'click', function onClick() {
-      this.setAnimation(google.maps.Animation.BOUNCE);
       infoWindow.setContent(place.name);
       infoWindow.open(map, this);
-      setTimeout(() => this.setAnimation(null), 700);
+      GMap.bounceIt(this);
     });
 
     return marker;
@@ -54,6 +53,17 @@ const GMap = {
    */
   createMarker(options) {
     return new google.maps.Marker(Object.assign({ map }, options));
+  },
+
+  /**
+   * Bounce a marker.
+   *
+   * @param {object} marker the marker to be bounced.
+   * @param {Number} duration the animation duration in ms. Default to 700.
+   */
+  bounceIt(marker, duration = 700) {
+    marker.setAnimation(google.maps.Animation.BOUNCE);
+    setTimeout(() => marker.setAnimation(null), duration);
   },
 
   /**

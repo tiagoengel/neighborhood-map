@@ -27,6 +27,13 @@ $sidebar-border-color: $dark-gray;
     font-weight: bold;
     margin-bottom: 0.5rem;
   }
+
+  .places__place {
+    &:hover {
+      background: darken($sidebar-background, 10%);
+      cursor: pointer;
+    }
+  }
 }
 
 @media screen and (min-width: $medium-screen) {
