@@ -67,7 +67,7 @@ const GMap = {
   },
 
   /**
-   * Search places near by the current location.
+   * Search places nearby the current location.
    * @param {object} options search options
    */
   searchNearByPlaces(options) {

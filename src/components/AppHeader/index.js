@@ -1,4 +1,3 @@
-import ko from 'knockout';
 import template from './template.html';
 
 function ViewModel(params) {
