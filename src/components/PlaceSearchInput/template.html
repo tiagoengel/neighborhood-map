@@ -1,6 +1,13 @@
-<input
-  data-bind="textInput: value"
-  class="place-search-input"
-  type="text"
-  placeholder="Search a place">
-</input>
+<div class="place-search-input">
+  <input
+    data-bind="textInput: value"
+    class="place-search-input__input"
+    type="text"
+    placeholder="Search a place">
+  </input>
+  <a
+    href="#"
+    class="place-search-input__clear delete"
+    data-bind="click: clearFilter, visible: hasFilter()"
+  />
+</div>
