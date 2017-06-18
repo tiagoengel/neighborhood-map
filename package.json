@@ -15,6 +15,7 @@
     "knockout": "^3.4.2",
     "lodash": "^4.17.4",
     "normalize-scss": "^7.0.0",
+    "promise.prototype.finally": "^2.0.1",
     "qs": "^6.4.0",
     "spinkit": "^1.2.5"
   },

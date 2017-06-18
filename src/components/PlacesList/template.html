@@ -1,5 +1,5 @@
 <ul class="places" data-bind="foreach: places">
-  <li class="places__place" data-bind="click: $parent.onSelect($data), css: { 'places__place--selected': $parent.isSelected($data) }">
+  <li class="places__place" data-bind="click: function() { $parent.onSelect($data) }, css: { 'places__place--selected': $parent.isSelected($data) }">
     <span data-bind="text: $data.name" />
     <div class="places__place-details" data-bind="visible: $parent.isSelected($data)">
       <img
@@ -7,6 +7,12 @@
         data-bind="attr: { src: $parent.getPhoto($data) }"
       />
       <p data-bind="text: $data.vicinity" />
+      <div class="places__place-tips">
+        <loading params="isLoading: $parent.isFetching($data)"></loading>
+        <ul data-bind="foreach: $parent.getTips($data)">
+          <li data-bind="text: $data.text" />
+        </ul>
+      </div>
     </div>
   </li>
 </ul>
