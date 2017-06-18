@@ -10,4 +10,9 @@
   &__place:not(:last-child) {
     border-bottom: 1px solid darken($light-gray, 8%);
   }
+
+  &__place-img {
+    width: 160px;
+    height: 160px;
+  }
 }
