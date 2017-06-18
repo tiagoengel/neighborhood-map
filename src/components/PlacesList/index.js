@@ -11,17 +11,18 @@ const ViewModel = {
 
   onSelect(place) {
     this.selectedPlace(place.id);
-    this.bounceIt(place);
+    this.highlight(place);
   },
 
   isSelected(place) {
     return place.id === this.selectedPlace();
   },
 
-  bounceIt(place) {
+  highlight(place) {
     const marker = markers[place.id];
     if (marker) {
       GMap.bounceIt(marker, 1400);
+      GMap.showInfo(marker, place.name);
     }
   },
 

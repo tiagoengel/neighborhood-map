@@ -11,7 +11,9 @@ required:
   ✔ show info about about the place upon clicking. @done (18/06/2017 16:55:07)
   ☐ Provide attribution to foursaquere in the UI and README
   ✔ Use one non Google API? ipinfo? @done (18/06/2017 16:55:20)
-  ☐ Better layout
+  ☐ Better layout.
+  ☐ Mobile experience.
+  ☐ Check todos.
   ☐ Unit tests or functional tests?
 
 

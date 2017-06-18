@@ -38,8 +38,7 @@ const GMap = {
     const marker = GMap.createMarker({ position });
 
     google.maps.event.addListener(marker, 'click', function onClick() {
-      infoWindow.setContent(place.name);
-      infoWindow.open(map, this);
+      GMap.showInfo(this, place.name);
       GMap.bounceIt(this);
     });
 
@@ -64,6 +63,17 @@ const GMap = {
   bounceIt(marker, duration = 700) {
     marker.setAnimation(google.maps.Animation.BOUNCE);
     setTimeout(() => marker.setAnimation(null), duration);
+  },
+
+  /**
+   * Displays `msg` using a infoWindow.
+   *
+   * @param {Object} marker a map marker.
+   * @param {String} msg the message to be shown.
+   */
+  showInfo(marker, msg) {
+    infoWindow.setContent(msg);
+    infoWindow.open(map, marker);
   },
 
   /**
