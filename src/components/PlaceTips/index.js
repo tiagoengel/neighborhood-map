@@ -25,7 +25,7 @@ const fetchTips = (() => {
   const cache = {};
   return (place, viewModel) => {
     if (cache[place.id]) {
-      return;
+      return cache[place.id];
     }
     let finished = false;
     // Only shows the progress component
@@ -35,15 +35,12 @@ const fetchTips = (() => {
         viewModel.isLoading(true);
       }
     }, 500);
-    cache[place.id] = doFetchTips(place)
-      .then((tips) => {
-        viewModel.tips(tips);
-        return tips;
-      })
-      .finally(() => {
-        finished = true;
-        viewModel.isLoading(false);
-      });
+    cache[place.id] = doFetchTips(place).finally(() => {
+      finished = true;
+      viewModel.isLoading(false);
+    });
+
+    return cache[place.id];
   };
 })();
 
@@ -54,7 +51,10 @@ function ViewModel(params) {
 
   params.visible.subscribe((visible) => {
     if (visible) {
-      fetchTips(params.place, this);
+      fetchTips(params.place, this).then((tips) => {
+        this.tips(tips);
+      });
+      // TODO: show error
     }
   });
 }
