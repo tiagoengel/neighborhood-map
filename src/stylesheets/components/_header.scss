@@ -1,8 +1,18 @@
 .header {
   display: flex;
   z-index: 1;
-  padding: 1rem;
   height: $header-height;
+
+  &__left-wrapper {
+    width: $sidebar-width;
+    display: flex;
+  }
+
+  &__right-wrapper {
+    display: flex;
+    flex-grow: 1;
+    justify-content: flex-end;
+  }
 
    &__github-link, &__menu-button {
     color: $white;
@@ -15,39 +25,45 @@
   &__menu-button {
     min-width: 1.5rem;
     min-height: 2rem;
-
-    .fa {
-      transition: all 0.1s ease-in-out;
-      font-size: 1.2rem;
-    }
+    padding: 1rem;
   }
 
   &__title {
-    flex-grow: 1;
+    padding: .8rem 1rem .8rem 0rem;
+    font-size: 1.2rem;
     text-align: center;
+    text-transform: uppercase;
+    font-weight: bold;
+    color: $white;
+    text-align: center;
+    flex-grow: 1;
   }
 
   &__github-link {
     flex-grow: 0;
     text-decoration: none;
+    padding: 1rem;
   }
 
   &__search {
+    flex-grow: 1;
     position: fixed;
     background: $dark-blue;
     top: calc(#{$header-height} - 0.5rem);
-    left: 0;
     width: 100%;
+    left: 0;
     padding: 0 1rem;
   }
 
   @media screen and (min-width: $medium-screen) {
     &__search {
-      top: 0;
-      left: 0;
-      width: 400px;
-      margin-left: 3rem;
+      position: static;
+      width: auto;
       padding: 0.6rem 0 0 0;
+    }
+
+    &__title {
+      flex-grow: 0;
     }
   }
 }

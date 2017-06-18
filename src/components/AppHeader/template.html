@@ -1,21 +1,26 @@
 <nav class="header">
-  <a class="header__menu-button" href="#" data-bind="click: onClickMenu">
-    <i class="fa fa-bars"/>
-  </a>
-  <span class="header__title">
-    <i class="fa fa-map-marker"/>
-    neighbourhood map
-  </span>
-  <a
-    class="header__github-link"
-    href="https://github.com/tiagoengel/neighborhood-map"
-    target="_blank"
-  >
-    <i class="fa fa-github-alt"/>
-    <span class="large-screen-only">View on github</span>
-  </a>
 
-  <div class="header__search">
-    <place-search-input />
+  <div class="header__left-wrapper">
+    <a class="header__menu-button" href="#" data-bind="click: onClickMenu">
+      <i class="fa fa-bars"/>
+    </a>
+    <span class="header__title">
+      neighbourhood map
+    </span>
+    <div class="header__search">
+      <place-search-input />
+    </div>
   </div>
+
+  <div class="header__right-wrapper">
+    <a
+      class="header__github-link"
+      href="https://github.com/tiagoengel/neighborhood-map"
+      target="_blank"
+    >
+      <i class="fa fa-github-alt"/>
+      <span class="large-screen-only">View on github</span>
+    </a>
+  </div>
+
 </nav>

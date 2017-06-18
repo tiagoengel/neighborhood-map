@@ -28,7 +28,7 @@ const ViewModel = {
 
   getPhoto(place) {
     return place.photos
-      ? place.photos[0].getUrl({ maxWidth: 160, maxHeight: 160 })
+      ? place.photos[0].getUrl({ maxWidth: 227, maxHeight: 128 })
       : place.icon;
   }
 };

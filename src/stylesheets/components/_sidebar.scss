@@ -1,4 +1,4 @@
-$sidebar-background: $light-gray;
+$sidebar-background: $white;
 $sidebar-border-color: $dark-gray;
 
 .sidebar {
@@ -38,8 +38,8 @@ $sidebar-border-color: $dark-gray;
 
 @media screen and (min-width: $medium-screen) {
   .sidebar {
-    width: 350px;
-    transform: translateX(-360px);
+    width: $sidebar-width;
+    transform: translateX(-#{$sidebar-width});
     top: $header-height;
     height: calc(100% - #{$header-height});
   }

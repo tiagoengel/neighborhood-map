@@ -3,16 +3,20 @@
   margin-bottom: 1rem;
 
   &__place {
-    margin: 0 1rem;
-    padding: 0.5rem 0;
+    padding: 1rem 1rem;
   }
 
   &__place:not(:last-child) {
     border-bottom: 1px solid darken($light-gray, 8%);
   }
 
+  &__place-details {
+    @include clearfix;
+  }
+
   &__place-img {
-    width: 160px;
-    height: 160px;
+    width: 227px;
+    height: 128px;
+    float: left;
   }
 }
