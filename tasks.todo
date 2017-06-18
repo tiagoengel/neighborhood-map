@@ -8,8 +8,9 @@ required:
   ✔ Extract places loading from componets. @done (15/06/2017 22:09:51)
   ✔ Filter items (should filter in the map and in the sidebar) @done (17/06/2017 15:52:03)
   ✔ Clicking the item on the sidebar should animate the marker @done (17/06/2017 16:20:01)
-  ☐ show info about about the place upon clicking. Provide attribution in the UI and README
-  ☐ Use one non Google API? ipinfo?
+  ✔ show info about about the place upon clicking. @done (18/06/2017 16:55:07)
+  ☐ Provide attribution to foursaquere in the UI and README
+  ✔ Use one non Google API? ipinfo? @done (18/06/2017 16:55:20)
   ☐ Better layout
   ☐ Unit tests or functional tests?
 

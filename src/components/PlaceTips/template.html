@@ -1,0 +1,6 @@
+<div class="place-tips" data-bind="visible: isVisible()">
+  <loading params="isLoading: isLoading()"></loading>
+  <ul data-bind="foreach: tips">
+    <li data-bind="text: $data.text" />
+  </ul>
+</div>

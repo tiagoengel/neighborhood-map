@@ -7,12 +7,7 @@
         data-bind="attr: { src: $parent.getPhoto($data) }"
       />
       <p data-bind="text: $data.vicinity" />
-      <div class="places__place-tips">
-        <loading params="isLoading: $parent.isFetching($data)"></loading>
-        <ul data-bind="foreach: $parent.getTips($data)">
-          <li data-bind="text: $data.text" />
-        </ul>
-      </div>
+      <place-tips params="visible: $parent.isSelected($data), place: $data" />
     </div>
   </li>
 </ul>

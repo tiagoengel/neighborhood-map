@@ -1,0 +1,13 @@
+.place-tips {
+  .loading {
+    position: static;
+    width: 100%;
+    margin: auto;
+    padding: 1rem;
+    height: 4rem;
+
+    .sk-rect {
+      background: $dark-gray;
+    }
+  }
+}
