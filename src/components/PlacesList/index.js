@@ -1,4 +1,5 @@
 import ko from 'knockout';
+import { startCase } from 'lodash';
 import template from './template.html';
 import Places from '../../models/Places';
 import GMap from '../../GMap';
@@ -28,8 +29,13 @@ const ViewModel = {
 
   getPhoto(place) {
     return place.photos
-      ? place.photos[0].getUrl({ maxWidth: 227, maxHeight: 128 })
+      ? place.photos[0].getUrl({ maxWidth: 160, maxHeight: 90 })
       : place.icon;
+  },
+
+  getType(place) {
+    const types = place.types;
+    return types ? startCase(types[0]) : null;
   }
 };
 

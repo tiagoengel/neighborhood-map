@@ -12,6 +12,8 @@ required:
   ☐ Provide attribution to foursaquere in the UI and README
   ✔ Use one non Google API? ipinfo? @done (18/06/2017 16:55:20)
   ☐ Better layout.
+  ☐ Sidebar open by default large screens.
+  ☐ Stars ratting.
   ☐ Mobile experience.
   ☐ Check todos.
   ☐ Unit tests or functional tests?

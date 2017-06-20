@@ -1,12 +1,14 @@
 <ul class="places" data-bind="foreach: places">
   <li class="places__place" data-bind="click: function() { $parent.onSelect($data) }, css: { 'places__place--selected': $parent.isSelected($data) }">
     <div class="places__place-details">
-      <img
-        class="places__place-img"
-        data-bind="attr: { src: $parent.getPhoto($data) }"
-      />
-      <p data-bind="text: $data.name" />
-      <p data-bind="text: $data.vicinity" />
+      <div class="places__place-img">
+        <img
+          data-bind="attr: { src: $parent.getPhoto($data) }"
+        />
+      </div>
+      <p class="places__place-name" data-bind="text: $data.name" />
+      <p class="places__place-vicinity" data-bind="text: $data.vicinity" />
+      <p class="places__place-type" data-bind="text: $parent.getType($data)" />
     </div>
 
     <place-tips params="visible: $parent.isSelected($data), place: $data" />

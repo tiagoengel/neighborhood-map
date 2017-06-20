@@ -12,11 +12,35 @@
 
   &__place-details {
     @include clearfix;
+
+    > p {
+      margin: 0;
+    }
   }
 
   &__place-img {
-    width: 227px;
-    height: 128px;
+    width: 160px;
+    height: 90px;
     float: left;
+    margin-right: 1rem;
+    border-radius: $base-border-radius;
+    overflow: hidden;
+
+    > img {
+      min-width: 100%;
+      max-width: 100%;
+      min-height: 100%;
+      max-height: 100%;
+    }
+  }
+
+  &__place-name {
+    color: $dark-blue;
+    font-weight: bold;
+  }
+
+  &__place-vicinity, &__place-type {
+    color: $medium-gray;
+    font-size: 0.85rem;
   }
 }
