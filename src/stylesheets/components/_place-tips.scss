@@ -7,7 +7,7 @@
     height: 4rem;
 
     .sk-rect {
-      background: $dark-gray;
+      background: $medium-gray;
     }
   }
 
@@ -22,6 +22,27 @@
   &__tip-meta {
     color: $medium-gray;
     font-size: 0.85rem;
+  }
+
+  &__attribution {
+    color: $medium-gray;
+    font-style: italic;
+    text-align: right;
+    font-size: 0.8rem;
+
+    a {
+      color: $medium-gray;
+
+      &:hover {
+        color: $medium-gray;
+      }
+    }
+  }
+
+  &__no-tips-found {
+    color: $medium-gray;
+    padding-top: 1rem;
+    margin: 0;
   }
 
 }

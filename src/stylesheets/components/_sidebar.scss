@@ -30,7 +30,7 @@ $sidebar-border-color: $dark-gray;
 
   .places__place {
     &:hover {
-      background: darken($sidebar-background, 10%);
+      background: darken($sidebar-background, 5%);
       cursor: pointer;
     }
   }

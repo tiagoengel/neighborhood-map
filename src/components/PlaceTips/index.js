@@ -38,19 +38,10 @@ const fetchTips = (() => {
     if (cache[place.id]) {
       return cache[place.id];
     }
-    let finished = false;
-    // Only shows the progress component
-    // if fetching does not finish before 500ms
-    setTimeout(() => {
-      if (!finished) {
-        viewModel.isLoading(true);
-      }
-    }, 500);
+    viewModel.isLoading(true);
     cache[place.id] = doFetchTips(place).finally(() => {
-      finished = true;
       viewModel.isLoading(false);
     });
-
     return cache[place.id];
   };
 })();
@@ -59,6 +50,9 @@ function ViewModel(params) {
   this.isLoading = ko.observable(false);
   this.isVisible = params.visible;
   this.tips = ko.observableArray();
+  this.noTips = ko.computed(() => {
+    return this.tips().length === 0 && !this.isLoading();
+  });
 
   params.visible.subscribe((visible) => {
     if (visible) {

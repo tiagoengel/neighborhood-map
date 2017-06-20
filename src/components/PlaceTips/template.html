@@ -10,4 +10,14 @@
       <p class="place-tips__tip-text" data-bind="text: $data.text" />
     </li>
   </ul>
+  <p
+    class="place-tips__no-tips-found"
+    data-bind="visible: noTips()">we didn't find any tips for this place :/
+  </p>
+  <p
+    data-bind="visible: !isLoading() && !noTips()"
+    class="place-tips__attribution"
+  >
+    tips by <a href="https://foursquare.com/">FOURSQUARE</a>
+  </p>
 </div>
