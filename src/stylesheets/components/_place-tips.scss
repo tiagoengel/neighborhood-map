@@ -10,4 +10,18 @@
       background: $dark-gray;
     }
   }
+
+  &__tip {
+    padding-top: 1rem;
+
+    > p {
+      margin: 0;
+    }
+  }
+
+  &__tip-meta {
+    color: $medium-gray;
+    font-size: 0.85rem;
+  }
+
 }

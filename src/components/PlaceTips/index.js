@@ -1,13 +1,24 @@
 import ko from 'knockout';
+import moment from 'moment';
 import template from './template.html';
 import FourSquare from '../../FourSquare';
+
+function getTopFive(tips) {
+  return tips.sort((a, b) => {
+    const createdAtDiff = b.createdAt - a.createdAt;
+    return createdAtDiff !== 0
+      ? createdAtDiff
+      : b.agreeCount - a.agreeCount;
+  }).slice(0, 4);
+}
 
 function doFetchTips(place) {
   return FourSquare
     .searchVenue(place)
     .then((venue) => {
       if (venue) {
-        return FourSquare.getTips(venue);
+        return FourSquare.getTips(venue)
+          .then(getTopFive);
       }
       return [];
     });
@@ -57,6 +68,10 @@ function ViewModel(params) {
       // TODO: show error
     }
   });
+
+  this.getCreatedAt = function getCreatedAt(tip) {
+    return moment(tip.createdAt * 1000).format('LL');
+  };
 }
 
 export default {

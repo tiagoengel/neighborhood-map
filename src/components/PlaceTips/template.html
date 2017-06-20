@@ -1,6 +1,13 @@
 <div class="place-tips" data-bind="visible: isVisible()">
   <loading params="isLoading: isLoading()"></loading>
   <ul data-bind="foreach: tips">
-    <li data-bind="text: $data.text" />
+    <li class="place-tips__tip">
+      <p class="place-tips__tip-meta">
+        <span data-bind="text: $data.user.firstName" />
+        <span data-bind="text: $data.user.lastName" /> •
+        <span data-bind="text: $parent.getCreatedAt($data)" />
+      </p>
+      <p class="place-tips__tip-text" data-bind="text: $data.text" />
+    </li>
   </ul>
 </div>
