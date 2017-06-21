@@ -11,8 +11,12 @@ const ViewModel = {
   selectedPlace: ko.observable(null),
 
   onSelect(place) {
-    this.selectedPlace(place.id);
-    this.highlight(place);
+    if (this.selectedPlace() === place.id) {
+      this.selectedPlace(null);
+    } else {
+      this.selectedPlace(place.id);
+      this.highlight(place);
+    }
   },
 
   isSelected(place) {
