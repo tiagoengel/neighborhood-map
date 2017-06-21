@@ -66,6 +66,14 @@ function ViewModel(params) {
   this.getCreatedAt = function getCreatedAt(tip) {
     return moment(tip.createdAt * 1000).format('LL');
   };
+
+  this.onClickFoursquareLink = (viewModel, e) => {
+    // this is needed otherwise knockout somehow 'eats'
+    // this event and only triggers the on click event in the
+    // places list.
+    e.stopPropagation();
+    return true;
+  };
 }
 
 export default {

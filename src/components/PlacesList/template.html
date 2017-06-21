@@ -1,5 +1,5 @@
 <ul class="places" data-bind="foreach: places">
-  <li class="places__place" data-bind="click: function() { $parent.onSelect($data) }, css: { 'places__place--selected': $parent.isSelected($data) }">
+  <li class="places__place" data-bind="click: $parent.onSelect.bind($parent), css: { 'places__place--selected': $parent.isSelected($data) }">
     <div class="places__place-details">
       <div class="places__place-img">
         <img
