@@ -11,8 +11,8 @@ required:
   ✔ show info about about the place upon clicking. @done (18/06/2017 16:55:07)
   ✔ Provide attribution to foursaquere in the UI @done (20/06/2017 20:58:21)
   ✔ Use one non Google API? ipinfo? @done (18/06/2017 16:55:20)
-  ☐ Better layout.
-  ☐ Sidebar open by default large screens.
+  ✔ Better layout. @done (20/06/2017 21:30:22)
+  ✔ Sidebar open by default large screens. @done (20/06/2017 21:38:42)
   ☐ Stars ratting and order by best rating.
   ☐ Mobile experience. (smaller images on sidebar or different layout?)
   ☐ Check todos.
