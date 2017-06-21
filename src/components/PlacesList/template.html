@@ -9,6 +9,7 @@
       <p class="places__place-name" data-bind="text: $data.name" />
       <p class="places__place-vicinity" data-bind="text: $data.vicinity" />
       <p class="places__place-type" data-bind="text: $parent.getType($data)" />
+      <star-rating params="rating: $data.rating" />
     </div>
 
     <place-tips params="visible: $parent.isSelected($data), place: $data" />

@@ -43,4 +43,10 @@
     color: $medium-gray;
     font-size: 0.85rem;
   }
+
+  .star-rating {
+    .fa {
+      color: $dark-blue;
+    }
+  }
 }

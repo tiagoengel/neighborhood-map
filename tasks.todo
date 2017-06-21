@@ -13,7 +13,7 @@ required:
   ✔ Use one non Google API? ipinfo? @done (18/06/2017 16:55:20)
   ✔ Better layout. @done (20/06/2017 21:30:22)
   ✔ Sidebar open by default large screens. @done (20/06/2017 21:38:42)
-  ☐ Stars ratting and order by best rating.
+  ✔ Stars ratting and order by best rating. @done (20/06/2017 22:08:06)
   ☐ Mobile experience. (smaller images on sidebar or different layout?)
   ☐ Check todos.
   ☐ Unit tests or functional tests?

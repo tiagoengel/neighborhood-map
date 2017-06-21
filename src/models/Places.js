@@ -19,7 +19,7 @@ GMap.onReady(() => {
     radius: 500,
     type: ['store'] // TODO: better search
   }).then((places) => {
-    allPlaces(places);
+    allPlaces(places.sort((a, b) => (b.rating || 0) - (a.rating || 0)));
   }).catch((err) => {
     console.error('Unable to load places', err);
     toast('Oh Snap! We were unable to load nearby places. Try again later', 'error');
