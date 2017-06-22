@@ -9,7 +9,18 @@
       <p class="places__place-name" data-bind="text: $data.name" />
       <p class="places__place-vicinity" data-bind="text: $data.vicinity" />
       <p class="places__place-type" data-bind="text: $parent.getType($data)" />
-      <star-rating params="rating: $data.rating" />
+      <star-rating class="hide-on-small-screen" params="rating: $data.rating" />
+
+      <div class="places__place-mobile-only-details">
+        <a
+          class="places__place-viewonmap button button--is-inverted"
+          href="#"
+          data-bind="click: $parent.showOnMap.bind($parent)"
+        >
+          View Map <i class="fa fa-arrow-right" />
+        </a>
+        <star-rating params="rating: $data.rating" />
+      </div>
     </div>
 
     <place-tips params="visible: $parent.isSelected($data), place: $data" />
