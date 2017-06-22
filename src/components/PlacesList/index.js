@@ -3,6 +3,7 @@ import { startCase } from 'lodash';
 import template from './template.html';
 import Places from '../../models/Places';
 import GMap from '../../GMap';
+import { Sidebar } from '../Sidebar';
 
 let markers = {};
 
@@ -16,6 +17,7 @@ const ViewModel = {
     } else {
       this.selectedPlace(place.id);
       this.highlight(place);
+      GMap.centerOnPlace(place);
     }
   },
 
@@ -40,6 +42,14 @@ const ViewModel = {
   getType(place) {
     const types = place.types;
     return types ? startCase(types[0]) : null;
+  },
+
+  showMap(place, e) {
+    e.stopPropagation();
+    Sidebar.close();
+    this.highlight(place);
+    GMap.centerOnPlace(place);
+    return true;
   }
 };
 

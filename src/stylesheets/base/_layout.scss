@@ -27,6 +27,12 @@ body {
   }
 }
 
+@media screen and (max-width: $small-screen) {
+  .hide-on-small-screen {
+    display: none;
+  }
+}
+
 .whole-screen {
   width: 100%;
   height: 100%;

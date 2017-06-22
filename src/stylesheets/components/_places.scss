@@ -4,6 +4,7 @@
 
   &__place {
     padding: 1rem 1rem;
+    position: relative;
   }
 
   &__place:not(:last-child) {
@@ -21,8 +22,8 @@
   &__place-img {
     width: 160px;
     height: 90px;
-    float: left;
     margin-right: 1rem;
+    padding-bottom: 1rem;
     border-radius: $base-border-radius;
     overflow: hidden;
 
@@ -47,6 +48,26 @@
   .star-rating {
     .fa {
       color: $dark-blue;
+    }
+  }
+
+  &__place-viewonmap {
+    margin-bottom: 0.5rem;
+  }
+
+  &__place-mobile-only-details {
+    position: absolute;
+    top: 1rem;
+    margin-left: calc(160px + 1rem);
+  }
+
+  @media screen and (min-width: $medium-screen) {
+    &__place-img {
+      float: left;
+    }
+
+    &__place-mobile-only-details {
+      display: none;
     }
   }
 }

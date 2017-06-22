@@ -77,6 +77,15 @@ const GMap = {
   },
 
   /**
+   * Centers the map on this place.
+   *
+   * @param {Object} place the place in which the map will be centered
+   */
+  centerOnPlace(place) {
+    map.panTo(place.geometry.location);
+  },
+
+  /**
    * Search places nearby the current location.
    * @param {object} options search options
    */
