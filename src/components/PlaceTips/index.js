@@ -59,7 +59,6 @@ function ViewModel(params) {
       fetchTips(params.place, this).then((tips) => {
         this.tips(tips);
       });
-      // TODO: show error
     }
   });
 
