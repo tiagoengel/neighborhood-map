@@ -17,6 +17,8 @@ $base-spacing: $base-line-height * 1em;
 $small-spacing: $base-spacing / 2;
 $base-z-index: 0;
 $header-height: 3.5rem;
+$mobile-header-extra-height: $header-height - 1.2rem;
+$mobile-header-height: $header-height + $mobile-header-extra-height;
 $sidebar-width: 650px;
 
 // Colors

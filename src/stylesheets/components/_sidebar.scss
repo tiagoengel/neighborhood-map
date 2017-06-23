@@ -5,9 +5,8 @@ $sidebar-border-color: $dark-gray;
   transition: all $base-duration $base-timing;
   position: fixed;
   left: 0;
-  // TODO: refactor me
-  top: calc(#{$header-height} + (#{$header-height} - 1.3rem));
-  height: calc(100% - (#{$header-height} + (#{$header-height} - 1.3rem)));
+  top: $mobile-header-height;
+  height: calc(100% - #{$mobile-header-height});
   width: 100%;
   overflow-y: auto;
   background: $sidebar-background;

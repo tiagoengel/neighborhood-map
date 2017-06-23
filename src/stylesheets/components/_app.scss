@@ -10,9 +10,8 @@
     margin: 0;
     padding: 0;
     width: 100%;
-    // TODO: please refactor me
-    margin-top: calc(#{$header-height} - 1.2rem);
-    height: calc(100% - (#{$header-height} + (#{$header-height} - 1.2rem)));
+    margin-top: $mobile-header-extra-height;
+    height: calc(100% - #{$mobile-header-height});
   }
 
   @media screen and (min-width: $medium-screen) {
