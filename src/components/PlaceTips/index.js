@@ -68,8 +68,7 @@ function ViewModel(params) {
 
   this.onClickFoursquareLink = (viewModel, e) => {
     // this is needed otherwise knockout somehow 'eats'
-    // this event and only triggers the on click event in the
-    // places list.
+    // this event and only triggers the on click event in places list.
     e.stopPropagation();
     return true;
   };
