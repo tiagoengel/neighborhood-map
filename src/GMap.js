@@ -131,7 +131,7 @@ const maybeInitMap = namedCurrying(['currentLocation', 'mapIsReady'],
   ({ currentLocation }) => {
     map = new google.maps.Map(document.querySelector('.app__map-container'), {
       center: currentLocation,
-      zoom: 17
+      zoom: 15
     });
     infoWindow = new google.maps.InfoWindow();
     markMe(currentLocation);

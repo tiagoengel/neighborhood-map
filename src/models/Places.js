@@ -17,7 +17,7 @@ const Places = new (function Places() {
 GMap.onReady(() => {
   GMap.searchNearByPlaces({
     radius: 500,
-    type: ['store'] // TODO: better search
+    type: ['store']
   }).then((places) => {
     allPlaces(places.sort((a, b) => (b.rating || 0) - (a.rating || 0)));
   }).catch((err) => {
