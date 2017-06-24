@@ -1,10 +1,9 @@
-import ko from 'knockout';
 import { expect } from 'chai';
 import koSuite from 'test/koSuite';
 import Subject from '..';
 
 describe('Components::StarRating', () => {
-  koSuite(Subject, { rating: ko.observable(3) });
+  koSuite(Subject, { rating: 3 });
 
   it('renders', () => {
     expect(subject.node).to.exist;
@@ -16,13 +15,13 @@ describe('Components::StarRating', () => {
   });
 
   it('does not render more than 5 stars', () => {
-    subject.params.rating(6);
+    subject.setParams({ rating: 6 });
     expect(subject.node.find('.fa-star').length).to.eq(5);
   });
 
   context('rating has fractional part', () => {
     beforeEach(() => {
-      subject.params.rating(2.3);
+      subject.setParams({ rating: 2.3 });
     });
 
     it('renders a half star for the fractional part', () => {

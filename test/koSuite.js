@@ -1,35 +1,19 @@
 import ko from 'knockout';
 import $ from 'jquery';
 
-const nextId = (() => {
-  let id = 0;
-  return () => {
-    return id++; //eslint-disable-line
-  };
-})();
-
-function expose(key, value) {
-  if (value !== undefined) {
-    window[key] = value;
-  } else {
-    delete window[key];
+function render(component, params) {
+  const prevNode = document.getElementById('test-container');
+  if (prevNode) {
+    document.body.removeChild(prevNode);
   }
-}
-
-function wrappedComponent(component) {
-  return function WrappedTestComponent(params) {
-    const ViewModel = component.viewModel;
-    const instance = new ViewModel(params);
-    expose('subject', instance);
-    return instance;
-  };
-}
-
-function render(node, name, params) {
-  const htmlParams = Object.keys(params).map(key => `${key}: ${key}`);
-  node.innerHTML = `<${name} params="${htmlParams}"></${name}>`; //eslint-disable-line
+  const node = document.createElement('div');
+  node.setAttribute('id', 'test-container');
+  const ViewModel = component.viewModel;
+  const instance = new ViewModel(params);
+  node.innerHTML = component.template; //eslint-disable-line
   document.body.appendChild(node);
-  return node;
+  ko.applyBindings(instance, node);
+  return [node, instance];
 }
 
 /**
@@ -55,26 +39,20 @@ function render(node, name, params) {
  * @param {object} params the list of params for the component.
  */
 export default function koSuite(component, params) {
-  const name = `test-component-${nextId()}`;
-  const testContainer = document.createElement('div');
-
-  before(() => {
-    const testComponent = wrappedComponent(component);
-    const template = component.template;
-    const node = render(testContainer, name, params);
-    ko.components.register(name, {
-      viewModel: testComponent,
-      template,
-      synchronous: true
-    });
-    ko.applyBindings(params);
+  const createSubject = (currentParams) => {
+    const [node, instance] = render(component, currentParams);
+    window.subject = instance;
     subject.node = $(node);
     subject.params = params;
+    subject.setParams = createSubject;
+  };
+
+  before(() => {
+    createSubject(params);
   });
 
   after(() => {
-    ko.components.unregister(name);
-    ko.cleanNode(testContainer);
-    expose('subject', undefined);
+    ko.cleanNode(subject.node);
+    delete window.subject;
   });
 }
