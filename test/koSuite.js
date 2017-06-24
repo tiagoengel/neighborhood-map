@@ -8,8 +8,13 @@ function render(component, params) {
   }
   const node = document.createElement('div');
   node.setAttribute('id', 'test-container');
-  const ViewModel = component.viewModel;
-  const instance = new ViewModel(params);
+  let instance = null;
+  if (component.viewModel.instance) {
+    instance = component.viewModel.instance;
+  } else {
+    const ViewModel = component.viewModel;
+    instance = new ViewModel(params);
+  }
   node.innerHTML = component.template; //eslint-disable-line
   document.body.appendChild(node);
   ko.applyBindings(instance, node);
@@ -28,11 +33,11 @@ function render(component, params) {
  *
  * Example:
  *
- *   koSuite(Component, { name: ko.observable('foo' )})
+ *   koSuite(Component, { name: 'foo' })
  *
  *   // in a test
  *   expect(subject.node.find('p').text()).to.eq('foo')
- *   subject.params.name('bar')
+ *   subject.setParams({ name: 'bar' })
  *   expect(subject.node.find('p').text()).to.eq('bar')
  *
  * @param {object} component the knockout component.
@@ -44,14 +49,19 @@ export default function koSuite(component, params) {
     window.subject = instance;
     subject.node = $(node);
     subject.params = params;
-    subject.setParams = createSubject;
+    subject.setParams = (newParams) => {
+      if (component.viewModel.instance) {
+        throw new Error("You can't call setParams on a singleton component");
+      }
+      return createSubject(newParams);
+    };
   };
 
-  before(() => {
+  beforeEach(() => {
     createSubject(params);
   });
 
-  after(() => {
+  afterEach(() => {
     ko.cleanNode(subject.node);
     delete window.subject;
   });
