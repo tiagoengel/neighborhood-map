@@ -4,7 +4,7 @@ import koSuite from 'test/koSuite';
 import Subject from '..';
 
 describe('Components::StarRating', () => {
-  koSuite(this, Subject, { rating: ko.observable(3) });
+  koSuite(Subject, { rating: ko.observable(3) });
 
   it('renders', () => {
     expect(subject.node).to.exist;

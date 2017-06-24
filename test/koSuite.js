@@ -32,7 +32,29 @@ function render(node, name, params) {
   return node;
 }
 
-export default function koSuite(test, component, params) {
+/**
+ * Configures the current test suite to test a knockout component.
+ * The component is mounted on a real DOM node and the variable `subject`
+ * is exposed with the component's instance. This variable can be used to make
+ * assertions and test the component.
+ *
+ * `subject.node` exposes a jquery object with the node the component is
+ * currently mounted in.
+ * `subject.params` exposes the params that were provided to the component.
+ *
+ * Example:
+ *
+ *   koSuite(Component, { name: ko.observable('foo' )})
+ *
+ *   // in a test
+ *   expect(subject.node.find('p').text()).to.eq('foo')
+ *   subject.params.name('bar')
+ *   expect(subject.node.find('p').text()).to.eq('bar')
+ *
+ * @param {object} component the knockout component.
+ * @param {object} params the list of params for the component.
+ */
+export default function koSuite(component, params) {
   const name = `test-component-${nextId()}`;
   const testContainer = document.createElement('div');
 
