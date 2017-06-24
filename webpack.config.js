@@ -50,5 +50,17 @@ module.exports = {
         use: ['html-loader']
       }
     ]
+  },
+  resolve: {
+    modules: [
+      path.resolve('./src'),
+      path.resolve('./node_modules')
+    ],
+    alias: {
+      test: path.resolve(__dirname, 'test/'),
+    }
+  },
+  externals: {
+    jquery: 'jQuery'
   }
 };

@@ -4,6 +4,7 @@ module.exports = function init(config) {
   config.set({
     frameworks: ['mocha'],
     files: [
+      'https://code.jquery.com/jquery-3.2.0.min.js',
       'test/setup.js'
     ],
     preprocessors: {
