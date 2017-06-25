@@ -28,8 +28,12 @@ function getComponentName(file) {
  */
 export default function initialize() {
   loadComponent.keys().forEach((file) => {
-    const component = loadComponent(file);
+    const component = loadComponent(file).default;
     const componentName = getComponentName(file);
-    ko.components.register(componentName, component.default);
+    ko.components.register(componentName, component);
+    const { viewModel } = component;
+    if (viewModel.instance && viewModel.initializers) {
+      viewModel.initializers.forEach(fn => fn());
+    }
   });
 }

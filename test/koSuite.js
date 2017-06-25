@@ -11,6 +11,14 @@ function render(component, params) {
   let instance = null;
   if (component.viewModel.instance) {
     instance = component.viewModel.instance;
+    // For singletons we just replace params with a different value as there's
+    // no other way of redefining it
+    Object.keys(params).forEach((paramName) => {
+      instance[paramName] = params[paramName];
+    });
+    if (component.viewModel.initializers) {
+      component.viewModel.initializers.forEach(fn => fn());
+    }
   } else {
     const ViewModel = component.viewModel;
     instance = new ViewModel(params);

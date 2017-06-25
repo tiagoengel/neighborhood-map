@@ -50,8 +50,9 @@ const ViewModel = {
     this.highlight(place);
     GMap.centerOnPlace(place);
     return true;
-  }
+  },
 };
+
 
 function cleanMarkers() {
   Object.values(markers).forEach((marker) => {
@@ -59,16 +60,20 @@ function cleanMarkers() {
   });
 }
 
-Places.places.subscribe((places) => {
-  setTimeout(() => {
-    cleanMarkers();
-    markers = Object.assign(
-      ...places.map(place => ({ [place.id]: GMap.createPlaceMarker(place) }))
-    );
-  }, 0);
-});
+function setUpMarkers() {
+  const createMarkers = (places) => {
+    setTimeout(() => {
+      cleanMarkers();
+      markers = Object.assign({},
+        ...places.map(place => ({ [place.id]: GMap.createPlaceMarker(place) }))
+      );
+    }, 0);
+  };
+  createMarkers(ViewModel.places());
+  ViewModel.places.subscribe(createMarkers);
+}
 
 export default {
-  viewModel: { instance: ViewModel },
+  viewModel: { instance: ViewModel, initializers: [setUpMarkers] },
   template
 };
