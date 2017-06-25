@@ -1,4 +1,4 @@
-import axios from 'axios';
+import $ from 'jquery';
 import qs from 'qs';
 
 const CLIENT_ID = 'ARIM40GBMLTOGC0DRQ0003ICTVTMY0AZSC55F33T2HKHZ3G0';
@@ -36,10 +36,10 @@ function searchVenue(place) {
     query: place.name,
     intent: 'match'
   });
-  return axios
-    .get(`${URL}/venues/search?${qs.stringify(args)}`)
+  return $
+    .getJSON(`${URL}/venues/search?${qs.stringify(args)}`)
     .then((response) => {
-      return response.data.response.venues[0];
+      return response.response.venues[0];
     });
 }
 
@@ -52,10 +52,10 @@ function searchVenue(place) {
  */
 function getTips(venue) {
   const args = credentials();
-  return axios
-    .get(`${URL}/venues/${venue.id}/tips?${qs.stringify(args)}`)
+  return $
+    .getJSON(`${URL}/venues/${venue.id}/tips?${qs.stringify(args)}`)
     .then((response) => {
-      return response.data.response.tips.items;
+      return response.response.tips.items;
     });
 }
 

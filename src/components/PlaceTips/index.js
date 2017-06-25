@@ -53,7 +53,6 @@ function ViewModel(params) {
   this.noTips = ko.computed(() => {
     return this.tips().length === 0 && !this.isLoading();
   });
-
   params.visible.subscribe((visible) => {
     if (visible) {
       fetchTips(params.place, this).then((tips) => {

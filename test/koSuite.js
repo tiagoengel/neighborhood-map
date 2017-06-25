@@ -61,7 +61,7 @@ export default function koSuite(component, params) {
       if (component.viewModel.instance) {
         throw new Error("You can't call setParams on a singleton component");
       }
-      return createSubject(newParams);
+      return createSubject(Object.assign({}, params, newParams));
     };
   };
 

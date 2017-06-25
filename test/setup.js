@@ -1,6 +1,8 @@
 import chai from 'chai';
 import sinon from 'sinon';
 import chaiJquery from 'chai-jquery';
+import 'shims';
+import './waitForPromises';
 
 chai.use(chaiJquery);
 sinon.assert.expose(chai.assert, { prefix: '' });
