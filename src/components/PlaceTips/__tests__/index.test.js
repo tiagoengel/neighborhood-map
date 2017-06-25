@@ -2,8 +2,8 @@ import ko from 'knockout';
 import { expect, assert } from 'chai';
 import sinonSuite from 'test/sinonSuite';
 import koSuite from 'test/koSuite';
-import waitForPromises from 'test/waitForPromises';
 import FourSquare from 'FourSquare';
+
 import Subject from '..';
 
 describe('Components::PlaceTips', () => {
@@ -47,15 +47,16 @@ describe('Components::PlaceTips', () => {
     });
 
     it('calls the Foursquare API', (done) => {
-      sinon.stub(FourSquare, 'searchVenue').callsFake(() => Promise.resolve({ id: 'foo' }));
+      const fetch = Promise.resolve({ id: 'foo' });
+      sinon.stub(FourSquare, 'searchVenue').callsFake(() => fetch);
       sinon.stub(FourSquare, 'getTips');
       subject.params.place.id = '3';
       visible(true);
-      waitForPromises(() => {
+      fetch.finally(() => {
         assert.called(FourSquare.searchVenue);
         assert.called(FourSquare.getTips);
         done();
-      });
+      }).catch(done);
     });
   });
 });

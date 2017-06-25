@@ -1,5 +1,5 @@
 import ko from 'knockout';
-import axios from 'axios';
+import $ from 'jquery';
 import { toast } from '../components/Toast';
 
 function html5Location() {
@@ -17,8 +17,8 @@ function html5Location() {
 }
 
 function ipInfoIOLocation() {
-  return axios.get('https://ipinfo.io').then((ipInfo) => {
-    const [lat, lng] = ipInfo.data.loc.split(',');
+  return $.getJSON('https://ipinfo.io').then((ipInfo) => {
+    const [lat, lng] = ipInfo.loc.split(',');
     return { lat: parseFloat(lat, 10), lng: parseFloat(lng, 10) };
   });
 }
@@ -33,7 +33,7 @@ const LocationProvider = {
 
   fetchCurrentLocation() {
     this.isFetching(true);
-    html5Location()
+    return html5Location()
     .catch((err) => {
       console.error('Failed to load location using HTML5 api, trying ipinfo.io', err);
       return ipInfoIOLocation();
@@ -46,7 +46,9 @@ const LocationProvider = {
       toast("Oh Snap! We weren't able to find your location :/", 'error');
       this.error(err);
     })
-    .then(() => this.isFetching(false));
+    .then(() => {
+      this.isFetching(false);
+    });
   }
 };
 
