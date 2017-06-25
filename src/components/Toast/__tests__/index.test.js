@@ -1,9 +1,10 @@
 import { expect } from 'chai';
-import sinon from 'sinon';
+import sinonSuite from 'test/sinonSuite';
 import koSuite from 'test/koSuite';
 import Subject, { toast } from '..';
 
 describe('Components::Toast', () => {
+  const sinon = sinonSuite();
   koSuite(Subject, {});
 
   it('renders', () => {
@@ -20,13 +21,11 @@ describe('Components::Toast', () => {
 
   describe('#toast', () => {
     beforeEach(() => {
-      this.clock = sinon.useFakeTimers();
       toast('you should test your code', 'warning');
       expect(subject.node.find('.toast__message')).to.exist;
     });
 
     afterEach(() => {
-      this.clock.restore();
       subject.messages([]);
     });
 
@@ -37,7 +36,7 @@ describe('Components::Toast', () => {
     });
 
     it('cleans it after the timeout', () => {
-      this.clock.tick(10001);
+      sinon.clock.tick(10001);
       expect(subject.node.find('.toast__message')).to.not.exist;
     });
 
