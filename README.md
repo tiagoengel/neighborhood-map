@@ -4,8 +4,8 @@ Neighborhood Map
 > Web application that shows interesting places in your neighborhood.
 
 This app is built using knockout.js and uses the following services:
-  1. Google Maps: the map and nearby places search.
-  2. Foursquare: tips for each place.
+  1. [Google Maps](https://developers.google.com/maps/documentation/javascript/): the map and nearby places search.
+  2. [Foursquare](https://foursquare.com/): tips for each place.
 
 ## Prerequisites
 To execute this project you will need these:
@@ -35,4 +35,4 @@ First of all, you need to install all the dependencies.
 *Chrome is necessary to run the tests.*
 
 ### Dev Server
-```year start```
+```yarn start```
