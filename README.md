@@ -11,7 +11,7 @@ This app is built using knockout.js and uses the following services:
 To execute this project you will need these:
 - [git](https://git-scm.com/downloads)
 - [node](https://www.python.org/downloads/)
-- [yarn](https://yarnpkg.com/en/) *it should work just with npm, but yarn is highly recommended*
+- [yarn](https://yarnpkg.com/en/) *(it should work just with npm, but yarn is highly recommended)*
 
 ## Running
 
