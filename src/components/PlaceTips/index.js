@@ -1,8 +1,8 @@
 import ko from 'knockout';
 import moment from 'moment';
+import { toast } from 'components/Toast';
 import template from './template.html';
 import FourSquare from '../../FourSquare';
-import { toast } from 'components/Toast';
 
 function getTopFive(tips) {
   return tips.sort((a, b) => {
@@ -59,13 +59,17 @@ function ViewModel(params) {
   this.noTips = ko.computed(() => {
     return this.tips().length === 0 && !this.isLoading();
   });
-  params.visible.subscribe((visible) => {
+
+  const show = (visible) => {
     if (visible) {
       fetchTips(params.place, this).then((tips) => {
         this.tips(tips);
       });
     }
-  });
+  };
+
+  show(params.visible());
+  params.visible.subscribe(show);
 
   this.getCreatedAt = function getCreatedAt(tip) {
     return moment(tip.createdAt * 1000).format('LL');

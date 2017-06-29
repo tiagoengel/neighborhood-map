@@ -16,8 +16,8 @@ const ViewModel = {
       this.selectedPlace(null);
     } else {
       this.selectedPlace(place.id);
-      this.highlight(place);
       GMap.centerOnPlace(place);
+      this.highlight(place);
     }
   },
 
@@ -29,7 +29,7 @@ const ViewModel = {
     const marker = markers[place.id];
     if (marker) {
       GMap.bounceIt(marker, 1400);
-      GMap.showInfo(marker, place.name);
+      GMap.showPlaceInfo(marker, place);
     }
   },
 

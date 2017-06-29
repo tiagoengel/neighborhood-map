@@ -1,7 +1,7 @@
 import ko from 'knockout';
+import { toast } from 'components/Toast';
 import LocationProvider from './models/LocationProvider';
 import namedCurrying from './utils/namedCurrying';
-import { toast } from 'components/Toast';
 
 const isReady = ko.observable(false);
 let map = null;
@@ -39,7 +39,7 @@ const GMap = {
     const marker = GMap.createMarker({ position });
 
     google.maps.event.addListener(marker, 'click', function onClick() {
-      GMap.showInfo(this, place.name);
+      GMap.showPlaceInfo(this, place);
       GMap.bounceIt(this);
     });
 
@@ -82,6 +82,25 @@ const GMap = {
   bounceIt(marker, duration = 700) {
     marker.setAnimation(google.maps.Animation.BOUNCE);
     setTimeout(() => marker.setAnimation(null), duration);
+  },
+
+  /**
+   * Displays place information on a infoWindow
+   *
+   * @param {Object} marker a map marker.
+   * @param {String} place the place to be shown.
+   */
+  showPlaceInfo(marker, place) {
+    const content = document.createElement('div');
+    content.innerHTML = `
+      <div class="map__place-info">
+        <h1>${place.name}</h1>
+        <place-tips params="place: place, visible: visible"></place-tips>
+      </div>
+    `;
+    infoWindow.setContent(content);
+    infoWindow.open(map, marker);
+    ko.applyBindings({ place, visible: ko.observable(true) }, content);
   },
 
   /**
