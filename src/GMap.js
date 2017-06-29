@@ -56,6 +56,24 @@ const GMap = {
   },
 
   /**
+   * Hide a marker.
+   *
+   * @param {object} marker the marker to hide.
+   */
+  hideMarker(marker) {
+    return marker.setMap(null);
+  },
+
+  /**
+   * Show a marker.
+   *
+   * @param {object} marker the marker to show.
+   */
+  showMarker(marker) {
+    return marker.setMap(map);
+  },
+
+  /**
    * Bounce a marker.
    *
    * @param {object} marker the marker to be bounced.

@@ -53,24 +53,29 @@ const ViewModel = {
   },
 };
 
+function forAllMarkers(cb) {
+  Object.values(markers).forEach(cb);
+}
 
-function cleanMarkers() {
-  Object.values(markers).forEach((marker) => {
-    marker.setMap(null);
-  });
+function hideAllMarkers() {
+  forAllMarkers(marker => GMap.hideMarker(marker));
 }
 
 function setUpMarkers() {
-  const createMarkers = (places) => {
+  const showOrCreate = (places) => {
     setTimeout(() => {
-      cleanMarkers();
+      hideAllMarkers();
       markers = Object.assign({},
-        ...places.map(place => ({ [place.id]: GMap.createPlaceMarker(place) }))
+        ...places.map((place) => {
+          const marker = markers[place.id] || GMap.createPlaceMarker(place);
+          GMap.showMarker(marker);
+          return { [place.id]: marker };
+        })
       );
     }, 0);
   };
-  createMarkers(ViewModel.places());
-  ViewModel.places.subscribe(createMarkers);
+  showOrCreate(ViewModel.places());
+  ViewModel.places.subscribe(showOrCreate);
 }
 
 export default {
