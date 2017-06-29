@@ -6,7 +6,6 @@
   z-index: 10;
 
   &__message {
-    @include sidebar-aware;
     padding: 1rem;
     margin-bottom: 1rem;
     color: $white;
@@ -17,10 +16,10 @@
   }
 
   &__message-content {
-    font-size: 1.5rem;
+    font-size: 1.2rem;
     display: flex;
     align-items: center;
-    max-width: $medium-screen;
+    max-width: $large-screen;
     margin: 0 auto;
 
     > p {

@@ -1,6 +1,7 @@
 import ko from 'knockout';
 import LocationProvider from './models/LocationProvider';
 import namedCurrying from './utils/namedCurrying';
+import { toast } from 'components/Toast';
 
 const isReady = ko.observable(false);
 let map = null;
@@ -144,6 +145,10 @@ const maybeInitMap = namedCurrying(['currentLocation', 'mapIsReady'],
  */
 window.initMap = function globalInitMap() {
   maybeInitMap({ mapIsReady: true });
+};
+
+window.mapFailed = function globalMapFailed() {
+  toast('Oh Snap! We had a problem loading the map, please try again later', 'error');
 };
 
 LocationProvider.currentLocation.subscribe((currentLocation) => {

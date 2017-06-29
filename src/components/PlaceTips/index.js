@@ -2,6 +2,7 @@ import ko from 'knockout';
 import moment from 'moment';
 import template from './template.html';
 import FourSquare from '../../FourSquare';
+import { toast } from 'components/Toast';
 
 function getTopFive(tips) {
   return tips.sort((a, b) => {
@@ -39,9 +40,14 @@ const fetchTips = (() => {
       return cache[place.id];
     }
     viewModel.isLoading(true);
-    cache[place.id] = doFetchTips(place).finally(() => {
-      viewModel.isLoading(false);
-    });
+    cache[place.id] = doFetchTips(place)
+      .catch(() => {
+        toast('Oh Snap! We were unable to load tips for this place. Try again later', 'error');
+        delete cache[place.id]; // force it to load again next time
+      })
+      .finally(() => {
+        viewModel.isLoading(false);
+      });
     return cache[place.id];
   };
 })();
